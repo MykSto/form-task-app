@@ -1,0 +1,42 @@
+.container-fluid {
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Media */
+@media (min-width: 319px) and (max-width: 565px) {
+  nav, main {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-menu {
+    flex-direction: column;
+  }
+  .environment {
+    padding: 1rem 0rem !important;
+  }
+  figure img {
+    width: 100%;
+  }
+  footer ul {
+    flex-direction: column;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+    line-height: 30px;
+  }
+}

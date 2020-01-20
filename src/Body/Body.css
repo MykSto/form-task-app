@@ -1,0 +1,17 @@
+main {
+  display: flex !important;
+}
+
+main {
+  position: relative;
+}
+
+main:before {
+  content: "";
+  padding-top: calc(2 * 2rem);
+}
+
+main:after {
+  content: "";
+  padding-bottom: calc(2 * 2rem);
+}

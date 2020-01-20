@@ -1,0 +1,37 @@
+.nav-container {
+  padding-top: 20px;
+}
+
+.right-menu,
+.left-menu {
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-menu img {
+  height: 30px;
+  cursor: pointer;
+}
+
+.right-menu img:hover {
+  opacity: 0.7;
+}
+
+.login-icon img {
+  height: 20px;
+  padding-right: 10px;
+}
+
+.environment {
+  padding-left: 3rem;
+}
+
+nav {
+  display: flex !important;
+  justify-content: space-between;
+}

@@ -1,0 +1,13 @@
+header {
+  position: relative;
+}
+header:first-child:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: -webkit-linear-gradient(to right, #fa7f25 0%, #fdbe13 100%); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fa7f25 0%, #fdbe13 100%);
+  top: -10px;
+  left: 0;
+}
