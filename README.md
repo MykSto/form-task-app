@@ -1,7 +1,7 @@
 
 ## Form-app
 
-React-based form applicatio with simple step navigation, state storing and manipulation
+React-based form application with simple step navigation, state storing and manipulation
 
 In the project directory, you can run:
 
