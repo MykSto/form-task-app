@@ -1,11 +1,19 @@
 import React, { useContext } from 'react';
 import data from 'data';
+import 'components/RegistrationForm/FirstStep/FirstStep.css';
 import Context from 'Context';
 
 const FirstStep = () => {
   const {
     label, setLabel,
   } = useContext(Context);
+
+  const section = {
+    display: 'flex',
+    flexFlow: 'column',
+    textAlign: 'center',
+    alignItems: 'center',
+  };
 
   const selectHandler = (event) => {
     event.persist();
@@ -16,8 +24,8 @@ const FirstStep = () => {
   };
 
   return (
-    <section>
-      <p>First steps</p>
+    <section style={section}>
+      <p className="border" id="position">..:First step:..</p>
       <label>
         {label.loanAmountText}
         <input

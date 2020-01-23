@@ -1,0 +1,29 @@
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 265px;
+    border-radius: 80px;
+    height: 120px;
+    color: white;
+    font-family: "Raleway";
+    font-size: 2.5rem;
+}
+.border {
+  --borderWidth: 3px;
+  background: #1d1f20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}

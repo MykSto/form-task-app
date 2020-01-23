@@ -10,20 +10,21 @@ import Context from 'Context';
 
 const Form = () => {
   const {
-    label, setStepStage, stepStage,
+    setStepStage, stepStage,
   } = useContext(Context);
 
   return (
-    <form>
-      {stepStage >= 1 && (<p>{label.formText}</p>)}
+    <form style={{ paddingTop: '10%' }}>
       {stepStage === 1 && (<FirstStep />)}
       {stepStage === 2 && (<SecondStep />)}
       {stepStage === 3 && (<ThirdStep />)}
       {stepStage === 4 && (<FourthStep />)}
       {stepStage === 5 && (<LastStep />)}
-      {stepStage !== 0 && stepStage !== 5 && <button type="button" onClick={() => setStepStage(stepStage - 1)}>Previous</button>}
-      {stepStage !== 5 && stepStage !== 0 && <button type="button" onClick={() => setStepStage(stepStage + 1)}>Next</button>}
-      {stepStage === 5 && <button type="button" onClick={() => setStepStage(0)}>Submit</button>}
+      <section id="buttons">
+        {stepStage !== 0 && stepStage !== 5 && <button className="btn-class-nav" type="button" onClick={() => setStepStage(stepStage - 1)}>Previous</button>}
+        {stepStage !== 5 && stepStage !== 0 && <button className="btn-class-nav" type="button" onClick={() => setStepStage(stepStage + 1)}>Next</button>}
+        {stepStage === 5 && <button className="btncls" type="button" onClick={() => setStepStage(0)}>Submit</button>}
+      </section>
     </form>
   );
 };

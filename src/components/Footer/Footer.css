@@ -1,5 +1,6 @@
 footer {
   position: relative;
+  background-color: #FA964C;
 }
 footer:before {
   content: "";

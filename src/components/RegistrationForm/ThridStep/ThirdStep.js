@@ -3,8 +3,15 @@ import Context from 'Context';
 
 const ThirdStep = () => {
   const {
-    label, setLabel,
+    label, setLabel, setStepStage,
   } = useContext(Context);
+
+  const section = {
+    display: 'flex',
+    flexFlow: 'column',
+    textAlign: 'center',
+    alignItems: 'center',
+  };
 
   let answer = '';
 
@@ -15,6 +22,7 @@ const ThirdStep = () => {
         <input
           type="text"
           value={label.upfrontAmount}
+          className="form-control"
           onChange={(e) => {
             const re = /^[0-9\b]+$/;
 
@@ -30,12 +38,14 @@ const ThirdStep = () => {
     return (
       <p>
 If :::
-        {label.answer.toUpperCase()}
+        {label.answer}
 :::
         {' '}
 GO TO THE NEXT STEP !
       </p>
     );
+  } else {
+    setStepStage(4);
   }
 
   let warning = '';
@@ -53,8 +63,8 @@ GO TO THE NEXT STEP !
   }
 
   return (
-    <section>
-      <p>Third Step</p>
+    <section style={section}>
+      <p className="border" id="position">.:Third Step:.</p>
       {answer}
       {warning}
     </section>

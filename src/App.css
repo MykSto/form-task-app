@@ -39,4 +39,17 @@
     padding: 0px 0px 20px 0px;
     line-height: 30px;
   }
+  main section {
+    display: flex;
+    flex-flow: column;
+  }
+  .form-control {
+    width: 100% !important;
+  }
+  #buttons{
+    padding-top: 10%;
+  }
+  .btn-class-nav{
+    width: 100% !important;
+  }
 }

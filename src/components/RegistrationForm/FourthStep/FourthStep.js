@@ -6,6 +6,13 @@ const FourthStep = () => {
     label, setLabel, setStepStage,
   } = useContext(Context);
 
+  const section = {
+    display: 'flex',
+    flexFlow: 'column',
+    textAlign: 'center',
+    alignItems: 'center',
+  };
+
   if (label.mathAnswer === '1') {
     setStepStage(4);
   } else if (label.mathAnswer > '1') {
@@ -17,8 +24,8 @@ const FourthStep = () => {
   }
 
   return (
-    <section>
-      <p>Fourth Step</p>
+    <section style={section}>
+      <p className="border" id="position">.:Fourth Step:.</p>
       <label>Your answer will decide whether you go the last step!</label>
       <input
         type="text"

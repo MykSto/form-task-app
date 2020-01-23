@@ -34,4 +34,5 @@ ul {
 nav {
   display: flex !important;
   justify-content: space-between;
+  background-color: #FBAD74;
 }
