@@ -1,64 +1,80 @@
 import React, { useState } from 'react';
 import './Body.css';
-import image from 'assets/picture.jpg';
 import Form from 'components/RegistrationForm/Form';
-import Context from '../../Context';
+import data from 'data';
+import Context from 'Context';
 
 const Body = () => {
   const { Provider } = Context;
 
   const [personalInfo, setPersonalInfo] = useState({
-    userInput: { name: 'Name', surname: 'Surname', pk: 'Personal Code' },
-    additionalInfo: {
-      education: ['Primary Education', 'Secondary Education', 'Higher Education'],
-      currentPosition: ['Employer', 'Freelancer', 'Student'],
-      jobIndustry: ['Information Technology', 'Architecture', 'Lawyer', 'Charity'],
-      workingPerdio: ['Less than 1 year', '1', '2', '3', 'More than 4 years'],
-    },
-    personalInfo: {
-      contractType: ['Fixed', 'Express', 'Other'],
-      maritalStatus: ['Single', 'Married', 'Complicated'],
-    },
-    contactInfo: { phone: '' },
-    loanPayDate: ['3', '7', '12', '17', '22', '27'],
+    name: 'Name',
+    surname: 'Surname',
+    pk: 'Personal Code',
+    phone: '',
   });
 
   const [label, setLabel] = useState({
-    loanAmount:
-    { text: 'Loan Amount', amountInput: 1 },
-    loanTerm: 'Loan Term',
-    liability: 'Incom and liabilities',
-    smth: '',
+    loanAmountText: 'Loan Amount: ',
+    loanTermText: 'Loan Term: ',
+    liability: 'Income and liabilities',
+    loanAmount: 0,
+    loanPayDates: 0,
+    loanTerm: 0,
+    formText: 'Loan request form',
+    loanPayDateText: 'Loan pay date: ',
+    upfrontAnswer: '',
+    upfrontAmount: '',
+    mathRound: 'Solve to finish the form',
+    mathRoundProblem: ' 9 - 3 / 1/3 + 1 = ',
+    mathAnswer: 0,
+    newStepNumberText: 'Correct answer to the math is: ',
+    ThirdStep: 'Third Step',
+    tuitionText: 'Have you been asked to pay upfornt for a tuition? ',
   });
+
+  const [stepStage, setStepStage] = useState(0);
 
   const styling = {
     background: '#FBF2F0',
     backgroundColor: '#FBF2F0',
   };
 
-  // conditional rendering
-
   return (
     <Provider
       value={{
-        personalInfo,
         label,
+        setLabel,
+        stepStage,
+        setStepStage,
+        personalInfo,
+        setPersonalInfo,
+        data,
       }}
     >
       <main style={styling} className="container-fluid">
         <section>
-          <p>Vartojimo paskola</p>
-          <p>Paskolos, kurios padeda</p>
+          <p>Free Credit Form</p>
+          <p>Credit, that will save your life.</p>
           <article>
-            Vartojimo paskola pravers, jei planuojate atnaujinti namus, remontuoti
-            automobilį, įsigyti naujų baldų, buitinės technikos, ar kitą brangesnį
-            daiktą.
+            Credit is like a vannila sky, whether your dreams is a pleasant comply,
+            {' '}
+            <br />
+or flying clouds with tears dry - this could be a place for a try.
+            <br />
+            <br />
+Click 'Apply' button below, take your time to invest
+            {' '}
+            <br />
+the form - and today will be the day.
+            <br />
+            <br />
+It is a beta version, more content is coming!
           </article>
+          <br />
+          <button type="button" onClick={() => setStepStage(1)}>Apply</button>
           <Form />
         </section>
-        <figure>
-          <img src={image} alt="" />
-        </figure>
       </main>
     </Provider>
   );

@@ -1,50 +1,29 @@
-import React, { useState, useContext } from 'react';
-import Application from 'components/RegistrationForm/FirstStep/Application';
-import PersonalInfo from 'components/RegistrationForm/SecondStep/PersonalInfo';
-import Submit from 'components/RegistrationForm/ThridStep/Submit';
-import Context from '../../Context';
+import React, { useContext } from 'react';
+import FirstStep from 'components/RegistrationForm/FirstStep/FirstStep';
+import SecondStep from 'components/RegistrationForm/SecondStep/SecondStep';
+import ThirdStep from 'components/RegistrationForm/ThridStep/ThirdStep';
+import FourthStep from 'components/RegistrationForm/FourthStep/FourthStep';
+import LastStep from 'components/RegistrationForm/LastStep/LastStep';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'components/RegistrationForm/Form.css';
+import Context from 'Context';
 
 const Form = () => {
-  const [stepStage, setStepStage] = useState({
-    stepStageOne: null,
-    stepStageTwo: null,
-    stepStageThree: null,
-    text: 'Vartojimo paskolos paraiška',
-    showText: false,
-  });
-
-  const { label, setLabel } = useContext(Context);
-
-  const setStageHandler = () => {
-    setStepStage((stepStage) => ({
-      ...stepStage,
-      stepStageOne: 1,
-      showText: true,
-    }));
-  };
-
-  let header = '';
-
-  if (stepStage.showText) {
-    header = (
-      <p>{stepStage.text}</p>
-    );
-  }
-
-  const inputChangedHandler = (event) => {
-    setLabel({
-      smth: event.target.value,
-    });
-  };
+  const {
+    label, setStepStage, stepStage,
+  } = useContext(Context);
 
   return (
-    <form target="/form">
-      <input type="button" value="Request" onClick={setStageHandler} />
-      {header}
-      {stepStage.stepStageOne === 1 && (<Application onChange={inputChangedHandler} />)}
-      <p>{label.smth}</p>
-      {stepStage.stepStageOne === 2 && (<PersonalInfo />)}
-      {stepStage.stepStageOne === 3 && (<Submit />)}
+    <form>
+      {stepStage >= 1 && (<p>{label.formText}</p>)}
+      {stepStage === 1 && (<FirstStep />)}
+      {stepStage === 2 && (<SecondStep />)}
+      {stepStage === 3 && (<ThirdStep />)}
+      {stepStage === 4 && (<FourthStep />)}
+      {stepStage === 5 && (<LastStep />)}
+      {stepStage !== 0 && stepStage !== 5 && <button type="button" onClick={() => setStepStage(stepStage - 1)}>Previous</button>}
+      {stepStage !== 5 && stepStage !== 0 && <button type="button" onClick={() => setStepStage(stepStage + 1)}>Next</button>}
+      {stepStage === 5 && <button type="button" onClick={() => setStepStage(0)}>Submit</button>}
     </form>
   );
 };

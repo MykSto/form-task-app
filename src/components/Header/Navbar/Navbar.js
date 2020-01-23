@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from 'assets/swedbank.png';
+import logo from 'assets/swedbank-logo.png';
 import './Navbar.css';
 import email from 'assets/email-icon.svg';
 import mobile from 'assets/mobile-icon.svg';
