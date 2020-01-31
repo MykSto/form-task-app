@@ -32,6 +32,6 @@ synthetic-Event-handing<br />
 conditional-component-rendering<br />
 
 ### `Improvements`
-Second step bug - if no value, next step trigger an error in regards toUpperCase() error<br />
+<strike>Second step bug - if no value, next step trigger an error in regards toUpperCase() error</strike><br />
 Styling composition can be lighter, as well files can be sorted better<br />
 Some of the conditional statements can be improved<br />
