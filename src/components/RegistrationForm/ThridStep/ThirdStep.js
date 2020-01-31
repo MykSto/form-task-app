@@ -15,37 +15,39 @@ const ThirdStep = () => {
 
   let answer = '';
 
-  if (label.answer.toUpperCase() === 'YES') {
-    answer = (
-      <section>
-        <p>How much in american dollars?</p>
-        <input
-          type="text"
-          value={label.upfrontAmount}
-          className="form-control"
-          onChange={(e) => {
-            const re = /^[0-9\b]+$/;
+  if (label.answer != null) {
+    if (label.answer.toUpperCase() === 'YES') {
+      answer = (
+        <section>
+          <p>How much in american dollars?</p>
+          <input
+            type="text"
+            value={label.upfrontAmount}
+            className="form-control"
+            onChange={(e) => {
+              const re = /^[0-9\b]+$/;
 
-            e.persist();
-            if (e.target.value === '' || re.test(e.target.value)) {
-              setLabel((label) => ({ ...label, upfrontAmount: e.target.value }));
-            }
-          }}
-        />
-      </section>
-    );
-  } else if (label.answer !== 'YES') {
-    return (
-      <p>
+              e.persist();
+              if (e.target.value === '' || re.test(e.target.value)) {
+                setLabel((label) => ({ ...label, upfrontAmount: e.target.value }));
+              }
+            }}
+          />
+        </section>
+      );
+    } else if (label.answer !== 'YES') {
+      return (
+        <p>
 If :::
-        {label.answer}
+          {label.answer}
 :::
-        {' '}
+          {' '}
 GO TO THE NEXT STEP !
-      </p>
-    );
+        </p>
+      );
+    }
   } else {
-    setStepStage(4);
+    setStepStage(2);
   }
 
   let warning = '';
